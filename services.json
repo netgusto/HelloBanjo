@@ -1,0 +1,32 @@
+{
+    "parameters": {
+        "serverport": 3000,
+        "defaultgreeting": "dear Nodist"
+    },
+
+    "services": {
+
+        "app": {
+            "class": "express",
+            "isFunction": true
+        },
+
+        "controller.hello": {
+            "class": "./controllers/HelloController",
+            "arguments": [
+                "%defaultgreeting%"
+            ]
+        },
+
+        "route.frontend": {
+            "class": "./routes/FrontendRoutes",
+            "arguments": [
+                "@controller.hello"
+            ],
+            "isFunction": true,
+            "tags": [
+                { "name": "kernel.route_provider", "mountpoint": "/" }
+            ]
+        }
+    }
+}
