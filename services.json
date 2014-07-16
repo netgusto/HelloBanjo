@@ -7,8 +7,8 @@
     "services": {
 
         "app": {
-            "class": "express",
             "isFunction": true
+            "class": "express",
         },
 
         "controller.hello": {
@@ -19,11 +19,11 @@
         },
 
         "route.frontend": {
+            "isFunction": true,
             "class": "./routes/FrontendRoutes",
             "arguments": [
                 "@controller.hello"
             ],
-            "isFunction": true,
             "tags": [
                 { "name": "kernel.route_provider", "mountpoint": "/" }
             ]
