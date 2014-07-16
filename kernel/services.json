@@ -1,0 +1,38 @@
+{
+    "imports": [
+        "../services.json"
+    ],
+    "parameters": {
+        "kernel.serverport": 3000
+    },
+    "services": {
+
+        "app": {
+            "isFunction": true,
+            "class": "express"
+        },
+
+        "path": {
+            "isObject": true,
+            "class": "path"
+        },
+
+        "kernel.routeloader": {
+            "class": "./services/RouteLoader",
+            "arguments": [
+                "@service_container",
+                "@app"
+            ]
+        },
+
+        "kernel.bootstrap": {
+            "class": "./services/Bootstrap",
+            "arguments": [
+                "%kernel.serverport%",
+                "@app",
+                "@path",
+                "@kernel.routeloader"
+            ]
+        }
+    }
+}

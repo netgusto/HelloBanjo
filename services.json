@@ -1,15 +1,9 @@
 {
     "parameters": {
-        "serverport": 3000,
         "defaultgreeting": "dear Nodist"
     },
 
     "services": {
-
-        "app": {
-            "isFunction": true
-            "class": "express",
-        },
 
         "controller.hello": {
             "class": "./controllers/HelloController",
