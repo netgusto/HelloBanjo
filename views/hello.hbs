@@ -3,3 +3,6 @@
 <h1>Hello, {{name}} !</h1>
 
 <p><em>This is HelloController speaking, using the view "view/hello.hbs".</em></p>
+
+<p><em>{{link 'home' (route 'home' name='bob') }}</em></p>
+<p><em>{{link 'login' (route 'login') }}</em></p>

@@ -5,8 +5,8 @@
 
     "services": {
 
-        "controller.hello": {
-            "class": "./controllers/HelloController",
+        "controller.frontend": {
+            "class": "./controllers/FrontendController",
             "arguments": [
                 "%defaultgreeting%"
             ]

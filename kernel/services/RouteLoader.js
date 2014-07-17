@@ -1,6 +1,6 @@
 // RouteLoader
 
-var RouteLoader = function(service_container, app) {
+var RouteLoader = function(service_container , app) {
     this.service_container = service_container;
     this.app = app;
 };
@@ -8,7 +8,6 @@ var RouteLoader = function(service_container, app) {
 RouteLoader.prototype.loadRoutes = function() {
 
     var _ = require('underscore');
-    var express = require('express');
 
     // Initialize routes
     var routeProviders = this.service_container.getServiceIdsHavingTag('kernel.route_provider');
@@ -16,11 +15,20 @@ RouteLoader.prototype.loadRoutes = function() {
     _.each(routeProviders, function(routeProvider) {
 
         var routes = this.service_container.get(routeProvider.id);
-        var router = express.Router();
 
-        _.each(routes, function(route) {
-            router.get(
-                route.path,
+        var mountpoint = '/';
+
+        if(routeProvider.attributes.mountpoint) {
+            mountpoint = routeProvider.attributes.mountpoint.replace(/\/+$/, '') + '/';
+        }
+
+        _.each(routes, function(route, routename) {
+
+            var path = route.path.replace(/^\/+/, '');
+
+            this.app.get(
+                mountpoint + path,
+                routename,
                 function() {
                     
                     // Lazy controller initialization
@@ -35,11 +43,6 @@ RouteLoader.prototype.loadRoutes = function() {
                 }.bind(this)
             );
         }, this);
-
-        this.app.use(
-            routeProvider.attributes.mountpoint,
-            router
-        );
 
     }, this);
 };

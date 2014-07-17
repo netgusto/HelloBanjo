@@ -1,10 +1,13 @@
 var FrontendRoutes = function(frontendcontroller) {
 
     return {
+        'login': {
+            path: '/login',
+            controller: '@controller.frontend:login'
+        },
         'home': {
             path: '/:name?',
-            controller: '@controller.hello:sayHello',
-            method: 'get'
+            controller: '@controller.frontend:sayHello'
         }
     };
 };

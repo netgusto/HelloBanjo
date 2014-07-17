@@ -17,11 +17,44 @@
             "class": "path"
         },
 
+        "core.viewhelpers": {
+            "class": "./services/CoreViewHelpers",
+            "isFunction": true,
+            "arguments": [
+                "@kernel.handlebars",
+                "@kernel.router"
+            ],
+            "tags": [
+                { "name": "kernel.viewhelper_provider" }
+            ]
+        },
+
+        "kernel.handlebars": {
+            "class": "express-hbs",
+            "isObject": true
+        },
+
+        "kernel.router": {
+            "class": "./services/Router",
+            "isFunction": true,
+            "arguments": [
+                "@app"
+            ]
+        },
+
         "kernel.routeloader": {
             "class": "./services/RouteLoader",
             "arguments": [
                 "@service_container",
                 "@app"
+            ]
+        },
+
+        "kernel.viewhelperloader": {
+            "class": "./services/ViewHelperLoader",
+            "arguments": [
+                "@service_container",
+                "@kernel.handlebars"
             ]
         },
 
@@ -31,7 +64,10 @@
                 "%kernel.serverport%",
                 "@app",
                 "@path",
-                "@kernel.routeloader"
+                "@kernel.handlebars",
+                "@kernel.router",
+                "@kernel.routeloader",
+                "@kernel.viewhelperloader"
             ]
         }
     }
