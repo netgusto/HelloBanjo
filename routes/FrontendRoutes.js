@@ -1,8 +1,12 @@
 var FrontendRoutes = function(frontendcontroller) {
 
-    var router = require('express').Router();
-    router.get('/:name?', frontendcontroller.sayHelloAction.bind(frontendcontroller));
-    return router;
+    return {
+        'home': {
+            path: '/:name?',
+            controller: '@controller.hello:sayHello',
+            method: 'get'
+        }
+    };
 };
 
 module.exports = FrontendRoutes;

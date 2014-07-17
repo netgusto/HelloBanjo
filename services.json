@@ -15,9 +15,6 @@
         "route.frontend": {
             "isFunction": true,
             "class": "./routes/FrontendRoutes",
-            "arguments": [
-                "@controller.hello"
-            ],
             "tags": [
                 { "name": "kernel.route_provider", "mountpoint": "/" }
             ]
