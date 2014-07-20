@@ -1,11 +1,7 @@
 {
-    "name": "wired-expressjs",
+    "name": "hellobanjo",
     "version": "0.0.1",
     "dependencies": {
-        "underscore": "~1.6.0",
-        "named-routes": "~1.1.4",
-        "express": "~4.6.1",
-        "express-hbs": "~0.7.10",
-        "service-container": "git://github.com/netgusto/service-container.git#master"
+        "banjo": "git://github.com/netgusto/Banjo.git#master"
     }
 }

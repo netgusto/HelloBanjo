@@ -4,5 +4,10 @@
 
 <p><em>This is HelloController speaking, using the view "view/hello.hbs".</em></p>
 
-<p><em>{{link 'home' (route 'home' name='bob') }}</em></p>
-<p><em>{{link 'login' (route 'login') }}</em></p>
+<ul>
+{{#each lastten}}
+    <li>
+        <a href="{{ route 'home' name=attributes.username}}">{{attributes.username}}</a>
+    </li>
+{{/each}}
+</ul>

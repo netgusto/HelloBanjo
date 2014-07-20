@@ -8,15 +8,24 @@
         "bundle.hello.controller.frontend": {
             "class": "./Controller/FrontendController",
             "arguments": [
-                "%defaultgreeting%"
+                "%defaultgreeting%",
+                "@bundle.hello.entity.user"
             ]
         },
 
         "bundle.hello.router.frontend": {
-            "isFunction": true,
             "class": "./Router/FrontendRouter",
+            "isFunction": true,
             "tags": [
                 { "name": "kernel.route_provider", "mountpoint": "/" }
+            ]
+        },
+
+        "bundle.hello.entity.user": {
+            "class": "./Entity/User",
+            "isFunction": true,
+            "arguments": [
+                "@kernel.orm"
             ]
         }
     }

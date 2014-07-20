@@ -1,5 +1,23 @@
 {
+    "parameters": {
+        "kernel.serverport": 3000,
+        
+        "kernel.database_driver": "mysql",
+        "kernel.database_host": "127.0.0.1",
+        "kernel.database_user": "root",
+        "kernel.database_password": "",
+        "kernel.database_name": "hellobanjo",
+        "kernel.database_charset": "utf8"
+    },
     "services": {
+        
+        "bundle.kernel": {
+            "class": "banjo",
+            "tags": [
+                { "name": "kernel.bundle_provider" }
+            ]
+        },
+
         "bundle.hello": {
             "class": "./bundles/HelloBundle",
             "tags": [
