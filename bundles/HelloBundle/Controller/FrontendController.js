@@ -9,7 +9,6 @@ FrontendController.prototype.sayHelloAction = function(request, response) {
 
     var name = request.params.name || this.string || 'World';
     var User = this.userentity;
-    //console.log(User.collection());
 
     User.forge({name: name}).save().then(function(user) {
 
@@ -27,9 +26,7 @@ FrontendController.prototype.sayHelloAction = function(request, response) {
 };
 
 FrontendController.prototype.loginAction = function(request, response) {
-    
     response.send('Login !');
-
 };
 
 module.exports = FrontendController;

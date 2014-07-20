@@ -1,7 +1,6 @@
 {
     "parameters": {
         "kernel.serverport": 3000,
-        
         "kernel.database_driver": "mysql",
         "kernel.database_host": "127.0.0.1",
         "kernel.database_user": "root",
