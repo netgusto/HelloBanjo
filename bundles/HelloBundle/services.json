@@ -1,0 +1,23 @@
+{
+    "parameters": {
+        "defaultgreeting": "dear Nodist"
+    },
+
+    "services": {
+
+        "bundle.hello.controller.frontend": {
+            "class": "./Controller/FrontendController",
+            "arguments": [
+                "%defaultgreeting%"
+            ]
+        },
+
+        "bundle.hello.router.frontend": {
+            "isFunction": true,
+            "class": "./Router/FrontendRouter",
+            "tags": [
+                { "name": "kernel.route_provider", "mountpoint": "/" }
+            ]
+        }
+    }
+}
