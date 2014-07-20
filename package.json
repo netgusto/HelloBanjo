@@ -3,7 +3,6 @@
     "version": "0.0.1",
     "dependencies": {
         "banjo": "git://github.com/netgusto/Banjo.git#master",
-        "express-resource": "0.0.3",
         "body-parser": "~1.4.3"
     }
 }
