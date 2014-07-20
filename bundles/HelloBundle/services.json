@@ -13,11 +13,26 @@
             ]
         },
 
+        "bundle.hello.controller.rest": {
+            "class": "./Controller/RestController",
+            "arguments": [
+                "@bundle.hello.entity.user"
+            ]
+        },
+
         "bundle.hello.router.frontend": {
             "class": "./Router/FrontendRouter",
             "isFunction": true,
             "tags": [
                 { "name": "kernel.route_provider", "mountpoint": "/" }
+            ]
+        },
+
+        "bundle.hello.router.rest": {
+            "class": "./Router/RestRouter",
+            "isFunction": true,
+            "tags": [
+                { "name": "kernel.route_provider", "mountpoint": "/api" }
             ]
         },
 

@@ -11,12 +11,12 @@ FrontendController.prototype.sayHelloAction = function(request, response) {
     var User = this.userentity;
     //console.log(User.collection());
 
-    User.forge({username: name}).save().then(function(user) {
+    User.forge({name: name}).save().then(function(user) {
 
         User.collection().query(function(qb) {
             qb.limit(10).orderBy('id','DESC');
         }).fetch().then(function(collection) {
-            
+            console.log(collection.models);
             response.render('hello', {
                 name: name,
                 lastten: collection.models
